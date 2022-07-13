@@ -23,7 +23,7 @@ function Banner({netflixOriginals,trendingNow}:Props) {
     },[netflixOriginals])
     console.log(movie)
   return (
-    <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[68vh] lg:justify-end
+    <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[78vh] lg:justify-end
     lg:pb-12">
         <div className='absolute top-0 left-0 -z-10 h-screen w-screen'>
            <Image src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
