@@ -2,7 +2,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import React, { useRef, useState } from 'react'
 import { TV } from '../typings'
 import Thumbnail from './Thumbnail'
-import TVThumbnail from './TVThumbNail'
+import TVThumbnail from './TVThumbnail'
 interface Props{
     title:string,
     tvs:TV[]

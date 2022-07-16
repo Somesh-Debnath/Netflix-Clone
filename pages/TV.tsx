@@ -12,24 +12,28 @@ import { TV } from '../typings'
 import requestTv from "../utils/requestTV"
 interface Props {
   netflixOriginals: TV[]
+  TopRated:TV[]
   trendingNow: TV[]
   hindi: TV[]
   Us: TV[]
   comedyTv: TV[]
   kdrama: TV[]
   animated: TV[]
+  bengali:TV[]
   //documentaries: TV[]
  // products: Product[]
 }
 
 const TV = ({
   netflixOriginals,
+  TopRated,
   Us,
   comedyTv,
   kdrama,
   animated,
   hindi,
   trendingNow,
+  bengali,
   //products,
 }: Props)=>{
    const {loading,logout}=useAuth()
@@ -56,12 +60,14 @@ const TV = ({
        </div>
         <section className="md:space-y-24">
           <RowTV title="Popular on Netflix" tvs={trendingNow} />
+          <RowTV title="Top Rated" tvs={TopRated} />
           <RowTV title="Hindi TV shows" tvs={hindi} />
           <RowTV title="US TV Dramas" tvs={Us} />
           {/* My List */}
          
           <RowTV title="K-Drama" tvs={comedyTv} />
           <RowTV title="Comedies" tvs={kdrama} />
+          <RowTV title="Bengali" tvs={bengali} />
           <RowTV title="Animated" tvs={animated} />
         </section>
       </main>
@@ -75,32 +81,38 @@ export default TV
 export const getServerSideProps=async()=>{
   const [
     netflixOriginals,
+    TopRated,
     trendingNow,
     hindi,
     Us,
     comedyTv,
     kdrama,
     animated,
+    bengali,
    
   ] = await Promise.all([
     fetch(requestTv.fetchNetflixOriginals).then((res) => res.json()),
+    fetch(requestTv.fetchTopRated).then((res) => res.json()),
     fetch(requestTv.fetchTrending).then((res) => res.json()),
     fetch(requestTv.fetchHindi).then((res) => res.json()),
     fetch(requestTv.fetchUS).then((res) => res.json()),
     fetch(requestTv.fetchKDrama).then((res) => res.json()),
     fetch(requestTv.fetchComedyTV).then((res) => res.json()),
     fetch(requestTv.fetchanimated).then((res) => res.json()),
+    fetch(requestTv.fetchBengali).then((res) => res.json()),
     
   ])
 return {
   props:{
     netflixOriginals: netflixOriginals.results,
+    TopRated: TopRated.results,
       trendingNow: trendingNow.results,
       hindi: hindi.results,
       Us: Us.results,
       comedyTv: comedyTv.results,
       kdrama: kdrama.results,
       animated: animated.results,
+      bengali:bengali.results
       
   }
 }

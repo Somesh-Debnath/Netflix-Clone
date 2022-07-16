@@ -13,31 +13,31 @@ function Modal() {
     const [genres,setGenres]=useState<Genre[]>([])
     const [muted,setMuted]=useState(false)
     const[data,setData]=useState()
-    useEffect(()=>{
-        if(!movie) return
-         
-        async function fetchMovie(){
-          const data= await fetch( `https://api.themoviedb.org/3/${
-            movie?.media_type === 'tv' ? 'tv' : 'movie'
-          }/${movie?.id}?api_key=${
-            process.env.NEXT_PUBLIC_API_KEY
-          }&append_to_response=videos`
-        ).then((response) => response.json())
-        .catch(err=>console.log(err))
+   
+  useEffect(() => {
+    if (!movie) return
 
-        if(data?.videos){
-          const index=data.videos.results.findIndex(
-            (element:Element)=>element.type==='Trailer'
-          )
-          setTrailer(data.videos?.results[index]?.key)
-        }
-        if(data?.genres){
-          setGenres(data?.genres)
-        }
+    async function fetchMovie() {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/${
+          movie?.media_type === 'tv' ? 'tv' : 'movie'
+        }/${movie?.id}?api_key=${
+          process.env.NEXT_PUBLIC_API_KEY
+        }&language=en-US&append_to_response=videos`
+      ).then((response) => response.json())
+      if (data?.videos) {
+        const index = data.videos.results.findIndex(
+          (element: Element) => element.type === 'Trailer'
+        )
+        setTrailer(data.videos?.results[index]?.key)
       }
-      fetchMovie()        
+      if (data?.genres) {
+        setGenres(data.genres)
+      }
+    }
 
-    },[movie])
+    fetchMovie()
+  }, [movie])
   console.log(trailer)
     const handleClose=()=>{
          setShowModal(false)
