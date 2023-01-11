@@ -51,8 +51,8 @@ const Home = ({
        md:max-w-xl  lg:text-lg'> 
            <h1 className=' font-bold md:text-2xl lg:text-4xl'>Movies</h1>
            <p >
-            These days, the small screen has some very big things to offer.
-            From sitcoms to dramas to travel and talk shows, these are all the best shows on TV.</p>
+           Movies move us like nothing else can, whether they’re scary, funny,
+            dramatic, romantic or anywhere in-between. So many titles, so much to experience..</p>
        </div>
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
