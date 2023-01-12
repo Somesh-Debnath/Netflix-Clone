@@ -27,7 +27,10 @@ export default function BasicMenu() {
         onClick={handleClick}
         className="!capitalize !text-white"
       >
-        Browse
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+        </svg>
+
       </Button>
       <Menu
         id="basic-menu"
@@ -39,10 +42,10 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
         >
-        <MenuItem onClick={()=>{()=>Router.push('/') ;()=>handleClose}}>Home</MenuItem>
-        <MenuItem onClick={()=>{()=>Router.push('/TV') ;()=>handleClose}}>TV Shows</MenuItem>
-        <MenuItem onClick={()=>{()=>Router.push('/Movies') ;()=>handleClose}}>Movies</MenuItem>
-        <MenuItem onClick={()=>{()=>Router.push('/Popular') ;()=>handleClose}}>New & Popular</MenuItem>
+        <MenuItem onClick={()=>Router.push('/') }>Home</MenuItem>
+        <MenuItem onClick={()=>Router.push('/TV') }>TV Shows</MenuItem>
+        <MenuItem onClick={()=>Router.push('/Movies') }>Movies</MenuItem>
+        <MenuItem onClick={()=>Router.push('/MyList') }>myList</MenuItem>
 
 
       </Menu>

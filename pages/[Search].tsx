@@ -57,6 +57,7 @@ import Header from '../components/Header'
 import Modal from '../components/Modal'
 import Row from '../components/Row'
 import { useSearch } from '../components/SearchContext'
+import Thumbnail from '../components/Thumbnail'
 import useAuth from '../hooks/useAuth'
 import { Movie } from '../typings'
 import requests from "../utils/requests"
@@ -74,19 +75,24 @@ interface Props{
  
 
   return (
-    <div className="relative h-screen
+    <div className="relative 
     bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
       <Head>
         <title>Home-Netflix</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-8'>
-        
-
-        <section className="md:space-y-24 mt-32">
-          <Row title={`Search Results for ${Item}`} movies={searchData}/>
-        </section>
+      <h1 className='mt-28 sm:ml-20 ml-12 sm:text-[1.7rem] text-lg mb-10
+        m'>Search Results for {Item}</h1>
+      <main className="my-10 sm:ml-20 ml-12 sm:w-full w-3/4">
+           <div className='w-full sm:w-[90%] flex justify-center'>
+          <div className='grid gap-5
+           sm:grid-cols-4 grid-rows-5'>
+            {searchData.map((movie)=>(
+              <Thumbnail key={movie.id} movie={movie}/>
+            ))}
+          </div>
+        </div>
       </main>
          {showModal && <Modal/>}
     </div>

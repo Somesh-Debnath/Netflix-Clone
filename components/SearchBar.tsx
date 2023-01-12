@@ -20,8 +20,10 @@ function SearchBar() {
          type="search"
          id="search"
          placeholder='Movies,TV Shows...'
-          className='w-full h-10 px-4 rounded-full bg-[#141414] text-white placeholder-white 
-          border-solid border-[1px] border-white focus:ring-[1.3px] focus:ring-[#f9f9f9]'
+          className='sm:w-full ml-5 w-4/5 sm:h-9 h-5 sm:mt-1 sm:px-3 px-2 rounded 
+          bg-[#141414] text-white placeholder-white 
+          border-solid border-[1px] border-white sm:focus:ring-[1.3px] 
+           sm:focus:ring-[#f9f9f9] '
       />
     </form>
       
