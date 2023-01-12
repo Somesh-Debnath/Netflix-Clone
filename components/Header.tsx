@@ -43,7 +43,7 @@ function Header() {
             <li className='headerLink' onClick={()=>Router.push('/TV')}>TV Shows</li>
             <li className='headerLink' onClick={()=>Router.push('/Movies')}>Movies</li>
             <li className='headerLink' onClick={()=>Router.push('/Popular')}>New & Popular</li>
-            <li className='headerLink'>My List</li>
+            
          </ul>
         </div>
 
